@@ -82,5 +82,31 @@ The best two regression model to predict weight of Pike is Length1 and Length3 v
   
 # Roach
 
+```{r}
+Roach <- filter(mydata, Species == "Roach")
+Roach <- select(Roach, -Species)
+```
 
+```{r}
+library(leaps)
+regsubsets.out <-
+    regsubsets(Weight ~ .,
+               data = Roach,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
 
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
+```
+
+```{r}
+RoachMODL <- lm(Weight~ Length3+Width,data=Roach)
+summary.lm(RoachMODL)
+```
+
+The best two regression model to predict weight of Roach is Length3 and Width variables. This the best regression model overall with an adjusted R-squared of 0.8482.  
+  
