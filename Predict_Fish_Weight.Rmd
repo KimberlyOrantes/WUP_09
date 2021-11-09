@@ -111,7 +111,7 @@ summary.lm(RoachMODL)
 The best two regression model to predict weight of Roach is Length3 and Width variables. This the best regression model overall with an adjusted R-squared of 0.8482.  
   
 
-# Plot
+# Plots
 
 ```{r}
 basicNN <- ggplot(perch,aes(y=Weight,x=Height))
@@ -122,3 +122,11 @@ basicNN + geom_point() + geom_smooth(method=lm) + ggtitle("Perch")
 basicNN <- ggplot(perch,aes(y=Weight,x=Width))
 basicNN + geom_point() + geom_smooth(method=lm) + ggtitle("Perch")
 ```
+
+These two Perch plots show the distribution of the best two regression model variables to predict weight, Height and Width. In both plots we can see that when the variables Height and Width increase the Weight increases as well. This demonstrates there is a relationship between weight and each of the variables Height and Width.    
+   
+# Discussion and Conclusion
+<!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+
+  
